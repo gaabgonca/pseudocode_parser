@@ -6,6 +6,14 @@ import parser
 
 UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__)) + '/uploads/'
 DOWNLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__)) + '/downloads/'
+try:
+    os.mkdir(UPLOAD_FOLDER)
+except Exception:
+    print('exception')
+try:
+    os.mkdir(DOWNLOAD_FOLDER)
+except Exception:
+    print('exception')
 ALLOWED_EXTENSIONS = {'txt'}
 
 app = Flask(__name__, static_url_path="/static")
