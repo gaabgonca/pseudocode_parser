@@ -34,8 +34,8 @@ def index():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             process_file(os.path.join(app.config['UPLOAD_FOLDER'], filename), filename)
-            return redirect(url_for('display', filename=filename))
-            # return redirect(url_for('uploaded_file', filename=filename))
+            # return redirect(url_for('display', filename=filename))
+            return redirect(url_for('uploaded_file', filename=filename))
     return render_template('index.html')
 
 @app.route('/<filename>/')
@@ -43,6 +43,7 @@ def display(filename):
     filename = filename
     lines = get_lines(filename)
     text = get_text(filename)
+    print(filename)
     runtime, syntax = parser.get_total_runtime(lines)
     # tables=[syntax.to_html(classes='data')], titles=syntax.columns.values
     return render_template('exercise.html', filename = filename, text=text, lines=lines, length = len(lines), runtime= runtime, )
@@ -107,6 +108,7 @@ def dated_url_for(endpoint, **values):
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
+    return redirect(url_for('display', filename=filename))
     return send_from_directory(app.config['DOWNLOAD_FOLDER'], filename, as_attachment=True)
 
 
