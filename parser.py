@@ -204,8 +204,7 @@ def calculate_runtime(syntax_complete):
             runtime += line['runtime']
     return sp.simplify(runtime)
 
-def get_total_runtime(filename):
-    lines = get_lines(filename)
+def get_total_runtime(lines):
     syntax = pd.DataFrame(data=lines, columns=['line'])
     syntax["length"] = syntax["line"].map(lambda line: len(line))
     syntax["type"] = syntax["line"].map(get_type)

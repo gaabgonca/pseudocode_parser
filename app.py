@@ -43,8 +43,9 @@ def display(filename):
     filename = filename
     lines = get_lines(filename)
     text = get_text(filename)
-    runtime, syntax = parser.get_total_runtime(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    return render_template('exercise.html', filename = filename, text=text, lines=lines, length = len(lines), runtime= runtime, tables=[syntax.to_html(classes='data')], titles=syntax.columns.values)
+    runtime, syntax = parser.get_total_runtime(lines)
+    # tables=[syntax.to_html(classes='data')], titles=syntax.columns.values
+    return render_template('exercise.html', filename = filename, text=text, lines=lines, length = len(lines), runtime= runtime, )
 
 
 def get_lines(filename):
