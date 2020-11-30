@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, redirect, url_for, render_template, send_from_directory
 from werkzeug.utils import secure_filename
+import parser
 # from PyPDF2 import PdfFileReader, PdfFileWriter
 
 UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__)) + '/uploads/'
@@ -39,9 +40,11 @@ def index():
 
 @app.route('/<filename>/')
 def display(filename):
+    filename = filename
     lines = get_lines(filename)
     text = get_text(filename)
-    return render_template('exercise.html', filename = filename, text=text, lines=lines, length = len(lines))
+    runtime, syntax = parser.get_total_runtime(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    return render_template('exercise.html', filename = filename, text=text, lines=lines, length = len(lines), runtime= runtime, tables=[syntax.to_html(classes='data')], titles=syntax.columns.values)
 
 
 def get_lines(filename):
