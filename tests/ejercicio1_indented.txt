@@ -1,0 +1,31 @@
+Inicio
+    Lea n
+    Para i=1,n,+1
+        Para j=1,n,+1
+            Lea A(i,,j)
+        Fpara
+    Fpara
+    Para i=1,n,+1
+        Para j=1,n,+1
+        Lea B(i,,j)
+        Fpara
+    Fpara
+    s=0
+    Para i=1,n,+1
+        X=x+A(i,i)
+    Fpara
+    x=0
+    Para i=1,n,+1
+        Para j=1,n,+1
+            Si (i==j)
+                x=x+B(i,j)
+            Fsi
+        Fpara
+    Fpara
+    Si (x>s)
+        Esc “x es mayor”
+        Esc x
+    sino
+        Esc “x no es mayor”
+    Fsi
+Pare
