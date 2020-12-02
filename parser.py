@@ -140,8 +140,8 @@ def for_runtime_formula(for_data,content_runtime):
     if increment < 0:
         lower_bound, upper_bound = upper_bound, lower_bound
         increment = -1 * increment
-    ceil = sp.Function('ceil')
-    iterations = (ceil((upper_bound-lower_bound+1)/increment)*(content_runtime +2)) + 2
+    # ceil = sp.Function('ceil')
+    iterations = (((upper_bound-lower_bound+1)/increment)*(content_runtime +2)) + 2
     return iterations  
 
 def get_for_blocks_runtime(syntax):

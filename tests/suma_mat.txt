@@ -1,0 +1,23 @@
+Inicio
+Lea n
+Para i=1,n,+1
+Para j=1,n,+1
+Lea A(i,,j)
+Fpara
+Fpara
+Para i=1,n,+1
+Para j=1,n,+1
+Lea B(i,,j)
+Fpara
+Fpara
+Para i=1,n,+1
+Para j=1,n,+1
+C(I,j)=A(i,j)+B(i,i)
+Fpara 
+Fpara
+Para i=1,n,+1
+Para j=1,n,+1
+Esc C(i,,j)
+Fpara
+Fpara
+Pare
